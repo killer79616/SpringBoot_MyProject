@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Update Management</title>
+<link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+	<nav th:replace="base/navbar::mynav"></nav>
+
+		<form class="updateform" th:action="@{/saveUser}" th:object="${user}" method="POST">
+			<input class="info" type="hidden" th:field="*{id}"><br>
+			<input class="info" type="hidden" th:field="*{password}"><br>
+			<input class="info" type="text" th:field="*{email}" placeholder="Email"><br>
+			<input class="info" type="text" th:field="*{firstname}" placeholder="First Name" ><br>
+			<input class="info" type="text" th:field="*{lastname}" placeholder="Last Name"><br>
+			<button type="submit" class="update">Update Confirm</button>
+		</form>
+
+</body>
+</html>
