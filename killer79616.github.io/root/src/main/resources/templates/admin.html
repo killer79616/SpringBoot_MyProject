@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- CSS only -->
+<link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+	<nav th:replace="base/navbar::mynav"></nav>
+	<h1>ADMIN PAGE</h1>
+	
+	<div class="userdisplay">
+    <table class="table" >
+              <thead>
+                <tr >
+                  <th class="col">Email</th>
+                  <th class="col">Firstname</th>
+                  <th class="col">Lastname</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="u,status : ${user}">
+                  <td class="col text" th:text="${u.email}"></td>
+                  <td class="col text" th:text="${u.firstname}"></td>
+                  <td class="col text" th:text="${u.lastname}"></td>
+                  <td>
+                    <a class="col button" th:href="@{/admin/adminupdate/{id}(id=${u.email})}" 
+                        >Update</a> 
+                    <a class="col button" th:href="@{/admin/admindelete/{id}(id=${u.email})}" 
+                        >Delete</a>
+                </td>
+                </tr>
+              </tbody>
+	</table>
+	</div>
+	
+	
+</body>
+</html>
